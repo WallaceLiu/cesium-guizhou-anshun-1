@@ -1,0 +1,22 @@
+{
+  "name": "cesium-guizhou-anshun-1",
+  "version": "1.0.0",
+  "description": "记录一下工作里面做过的功能",
+  "main": "index.js",
+  "scripts": {
+    "serve": "http-server -p 8001"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/WallaceLiu/cesium-guizhou-anshun-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WallaceLiu/cesium-guizhou-anshun-1/issues"
+  },
+  "homepage": "https://github.com/WallaceLiu/cesium-guizhou-anshun-1#readme",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
