@@ -462,7 +462,7 @@
           <div v-show="ctrl.dialog.tile.rectangleShow">
             西：<el-input size="mini" v-model="ctrl.dialog.tile.data['west']"></el-input>
             南：<el-input size="mini" v-model="ctrl.dialog.tile.data['south']"></el-input>
-            <br>
+            
             东：<el-input size="mini" v-model="ctrl.dialog.tile.data['east']"></el-input>
             北：<el-input size="mini" v-model="ctrl.dialog.tile.data['north']"></el-input>
           </div>

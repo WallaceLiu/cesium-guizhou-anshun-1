@@ -65,7 +65,7 @@ function option2 (idx, selected) {
         case '0':
             sizeCtrl = 10;
             tipFormatter = function (v) {
-                return v[1] + '<br>'
+                return v[1] + ''
                        + 'GDP : ' + v[2][0] + '（亿元）<br/>'
                        + '人口 : ' + v[2][1] + '（万人）<br/>'
                        + 'PM2.5 : ' + v[2][2];
@@ -87,7 +87,7 @@ function option2 (idx, selected) {
         case '1':
             sizeCtrl = 80;
             tipFormatter = function (v) {
-                return v[1] + '<br>'
+                return v[1] + ''
                        + 'PM2.5 : ' + v[2][0] + '<br/>'
                        + 'GDP : ' + v[2][1] + '（亿元）<br/>'
                        + '人口 : ' + v[2][2] + '（万人）';
@@ -109,7 +109,7 @@ function option2 (idx, selected) {
         case '2':
             sizeCtrl = 500;
             tipFormatter = function (v) {
-                return v[1] + '<br>'
+                return v[1] + ''
                        + 'PM2.5  : ' + v[2][0] + '<br/>'
                        + '人口  : ' + v[2][1] + '（万人）<br/>'
                        + 'GDP : ' + v[2][2] + '（亿元）';

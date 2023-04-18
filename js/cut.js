@@ -3,10 +3,10 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
     var $ = require('jquery');
  
   /*
-  * ÆÊÃæ·ÖÎö¶ÔÏó
-  * »­Ïß½ØÈ¡ÆÊÃæ
-  * ÆðµãÐÅÏ¢ºÍÖÕµãÐÅÏ¢
-  * ·ÖÎö½á¹ûÐ¡´°¿ÚÏÔÊ¾
+  * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  * ï¿½ï¿½ï¿½ß½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+  * ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Ï¢
+  * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
   *
   * */
     var handlerLine;
@@ -16,7 +16,7 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
     var crossProfile;
     var htmlStr =
         '<div style="position: absolute;background-color: rgba(38, 38, 38, 0.75)">' +
-        '<button style="background-color: rgba(38, 38, 38, 0.75);float: right;margin-top: 10px;margin-right: 10px;" aria-label="Close" id="closeScene" class="myModal-close" title="¹Ø±Õ"><span aria-hidden="true">¡Á</span></button><br><br>' +
+        '<button style="background-color: rgba(38, 38, 38, 0.75);float: right;margin-top: 10px;margin-right: 10px;" aria-label="Close" id="closeScene" class="myModal-close" title="ï¿½Ø±ï¿½"><span aria-hidden="true">ï¿½ï¿½</span><<br><br>' +
         '<div id="pro" style="width: 600px;height: 400px;">' +
         '</div>'+
         '</div>';
@@ -78,11 +78,11 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
         });
         handlerLine.movingEvt.addEventListener(function(windowPosition){
             if(handlerLine.isDrawing){
-                console.log("µÚÒ»¸öµã»æÖÆÍê³É");
-                tooltip.showAt(windowPosition,'<p>ÓÒ¼üµ¥»÷½áÊø»æÖÆ</p>');
+                console.log("ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+                tooltip.showAt(windowPosition,'<p>ï¿½Ò¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</p>');
             }
             else{
-                tooltip.showAt(windowPosition,'<p>µã»÷»æÖÆµÚÒ»¸öµã</p>');
+                tooltip.showAt(windowPosition,'<p>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½Ò»ï¿½ï¿½ï¿½ï¿½</p>');
             }
         });
  
@@ -108,12 +108,12 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
  
         handlerLine.drawEvt.addEventListener(function(result) {
             setTimeout(function () {
-                console.log("×îºóÒ»¸öµã»æÖÆÍê³É");
+                console.log("ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                 tooltip.setVisible(false);
                 line=result.object;
                 var startPoint = line._positions[0];
                 var endPoint = line._positions[line._positions.length - 1];
-                //ÆðÖ¹µãÏà¹ØÐÅÏ¢
+                //ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
                 var scartographic = Cesium.Cartographic.fromCartesian(startPoint);
                 var slongitude = Cesium.Math.toDegrees(scartographic.longitude);
                 var slatitude = Cesium.Math.toDegrees(scartographic.latitude);
@@ -131,8 +131,8 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
                 $('#profileAlt2').val(eheight);
                 $("#sceneAttribute").show();
  
-                var pointSum = 10;  //È¡Ñùµã¸öÊý
-				//Á½¸öµãÖ®¼äµÄ¾­Î³¶ÈÏà²îÖµ
+                var pointSum = 10;  //È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä¾ï¿½Î³ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
                 var addXTT = Cesium.Math.lerp(slongitude, elongitude, 1.0/pointSum) - slongitude;
                 var addYTT = Cesium.Math.lerp(slatitude, elatitude, 1.0/pointSum) - slatitude;
  
@@ -148,7 +148,7 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
  
                     var longitude = slongitude + (i+1) * addXTT;
                     var latitude = slatitude + (i+1) * addYTT;
-					//Ñ­»·¼ÆËãµÃ³ö10¸öµã
+					//Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½10ï¿½ï¿½ï¿½ï¿½
                     if (i == 0){
                         dp1 = new Cesium.Cartesian3(longitude, latitude, 0);
                     } else if (i == 1){
@@ -164,15 +164,15 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
                     var position = viewer.scene.globe.pick(ray, viewer.scene);
                     if (Cesium.defined(position)) {
                         var cartographic = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position);
-                        console.log("µã»÷´¦º£°Î¸ß¶ÈÎª£º" + cartographic.height +"Ã×");
-                        heightArr[i] = cartographic.height.toFixed(2);   //±£ÁôÁ½Î»Ð¡Êý
+                        console.log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ß¶ï¿½Îªï¿½ï¿½" + cartographic.height +"ï¿½ï¿½");
+                        heightArr[i] = cartographic.height.toFixed(2);   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»Ð¡ï¿½ï¿½
  
                     }
  
                 }
  
-                //¼ÆËãÁ½¸öÈýÎ¬×ø±êÖ®¼äµÄ¾àÀë
-                var juli = Math.round(Cesium.Cartesian3.distance(dp1,dp2) * 100000); //dp1¡¢dp2 ¶¼ÊÇÈýÎ¬×ø±êÏµ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
+                var juli = Math.round(Cesium.Cartesian3.distance(dp1,dp2) * 100000); //dp1ï¿½ï¿½dp2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½Ïµ
                 var yData = heightArr;
                 var xData = [];
  
@@ -187,7 +187,7 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
                 var myChart = echarts.init(document.getElementById("pro"));
                 var option = {
                     title : {
-                        text: 'ÆÊÃæÊ¾ÒâÍ¼',
+                        text: 'ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Í¼',
                         left: 'center',
                         subtext: '',
                         textStyle: {
@@ -201,7 +201,7 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
                     legend: {
                         data:['']
                     },
-                    //ÓÒÉÏ½Ç¹¤¾ßÌõ
+                    //ï¿½ï¿½ï¿½Ï½Ç¹ï¿½ï¿½ï¿½ï¿½ï¿½
                     toolbox: {
                         show : false,
                         feature : {
@@ -216,7 +216,7 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
                     xAxis : [
                         {
                             type : 'category',
-                            name:"³¤¶È(Ã×)",
+                            name:"ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½)",
                             boundaryGap : false,
                             data : xData,
                             axisLabel : {
@@ -234,9 +234,9 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
                     yAxis : [
                         {
                             type : 'value',
-                            name:"¸ß³Ì£¨Ã×£©",
+                            name:"ï¿½ß³Ì£ï¿½ï¿½×£ï¿½",
                             axisLabel : {
-                                // formatter: '{value} Ã×',
+                                // formatter: '{value} ï¿½ï¿½',
                                 textStyle: {
                                     color: 'white'
                                 }
@@ -250,25 +250,25 @@ define(['Cesium','SuperMap','js/analysis/Convert','echartsMin','js/polygonStatis
                     ],
                     series : [
                         {
-                            name:'¸ß³Ì',
+                            name:'ï¿½ß³ï¿½',
                             type:'line',
                             data:yData,
                             markPoint : {
                                 data : [
-                                    {type : 'max', name: '×î´óÖµ'},
-                                    {type : 'min', name: '×îÐ¡Öµ'}
+                                    {type : 'max', name: 'ï¿½ï¿½ï¿½Öµ'},
+                                    {type : 'min', name: 'ï¿½ï¿½Ð¡Öµ'}
                                 ]
                             },
                             markLine : {
                                 data : [
-                                    {type : 'average', name: 'Æ½¾ùÖµ'}
+                                    {type : 'average', name: 'Æ½ï¿½ï¿½Öµ'}
                                 ]
                             }
                         }
                     ]
                 };
  
-                // Îªecharts¶ÔÏó¼ÓÔØÊý¾Ý
+                // Îªechartsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 myChart.setOption(option);
  
  
